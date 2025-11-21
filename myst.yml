@@ -1,0 +1,23 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 4790e295-d350-42e3-9258-bbe91748054a
+  title: "Project 2: Reproducibility in Natural Language Processing"
+  description: "This website follows a term project for Stat 159. It focuses on exploratory data analysis, implementing modern NLP (Natural Language Processing) pipelines, conducting core text analysis, building and comparing topic models, and creating an open, easily accessible repository."
+  keywords: ["NLP", "lemmatization", "tokenization", "vectorization", "word frequency", "LDA", "BERTopic Topic Modeling"]
+  authors:
+    - name: "Claire O'Brien"
+    - name: "Riley Yu"
+    - name: "Lin Da Miao"
+  github: https://github.com/UCB-stat-159-f25/proj02-group27
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+  toc:
+    - file: index.md
+    - file: nlp-P01.ipynb
+    - file: nlp-P02.ipynb
+    - file: nlp-P03.ipynb
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
