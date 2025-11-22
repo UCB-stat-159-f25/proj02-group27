@@ -1,0 +1,106 @@
+AI Documentation(Riley Yu)
+
+1. **Debugging and troubleshooting:**  
+   Prompt (input to ChatGPT):
+
+I tried to save my Plotly topic distribution figure using fig.write_image("outputs/topic_probability_distribution.png"), but I keep getting this error:
+
+ValueError: 
+Image export using the "kaleido" engine requires the Kaleido package,
+which can be installed using pip:
+$ pip install --upgrade kaleido
+
+
+But when I run pip install --upgrade kaleido in the notebook or in terminal, it says “No matching distribution found for install”. How can I fix this and still save the figure?
+    
+    ChatGPT Output (summary):
+
+ChatGPT explained that DataHub's sotu environment does not allow new pip installs, so Kaleido cannot be added. Because Plotly figures require Kaleido for PNG export, ChatGPT recommended switching strategies:
+• Save the Plotly figure as HTML instead of PNG using fig.write_html("outputs/topic_probability_distribution.html").
+• For BERTopic plots generated with .visualize_distribution() and .visualize_topics(), ChatGPT showed how to use .write_html() directly on those objects.
+
+This resolved the error and all figures successfully saved inside the outputs/ folder in HTML format for the project website.
+
+2. **Version Control and Collaboration:**  
+   Prompt (input to ChatGPT):
+
+My teammates pushed updates. When I try git pull, it says my changes would be overwritten. When I try git push, it says I’m behind and rejected. Then I attempted a merge and got a conflict inside my Jupyter notebook. What should I do?
+
+    ChatGPT Output (summary):
+
+ChatGPT walked me through the correct conflict-resolution workflow:
+
+Commit my local changes first
+
+git add nlp-P03.ipynb outputs/
+git commit -m "Save my local changes before pulling"
+
+
+Pull with conflict resolution
+
+git pull
+
+
+Git produced a merge conflict inside nlp-P03.ipynb.
+
+Fix the conflict manually inside Jupyter, then:
+
+git add nlp-P03.ipynb
+git commit -m "Resolve merge conflict"
+git push
+
+
+ChatGPT explained that notebook conflicts are expected when multiple people edit the same file, and that committing, resolving, and then pushing is the safe, correct workflow.
+
+3. **Code Clarity:**  
+   Prompt (input to ChatGPT):
+
+My code for plotting the topic probability distribution for the first speech keeps throwing errors when I try to convert the output of approximate_distribution() into a DataFrame. I also want the code to look clean and easy to follow. How should I structure this?
+
+    ChatGPT Output (summary):
+
+ChatGPT explained that approximate_distribution(docs) returns a 2D array (documents × topics), and that I should select the first row and then build a DataFrame explicitly. It provided a clean pattern:
+
+first_distribution, _ = topic_model.approximate_distribution(docs)
+first_distribution = first_distribution[0]   # probabilities for first speech
+
+topic_info = topic_model.get_topic_info()
+topic_names = topic_info["Name"].tolist()
+
+df_probs = pd.DataFrame({
+    "Topic": topic_names,
+    "Probability": first_distribution
+}).sort_values("Probability", ascending=False)
+
+
+This refactor removed my shape errors and gave me a well-labeled table that I could pass directly into Plotly for visualization.
+
+4. **Explanation and :**  
+   Prompt (input to ChatGPT):
+
+Why are I setting stop_words="english" if BERTopic already does some preprocessing? What is the effect on the topics?
+
+    ChatGPT Output (summary):
+
+ChatGPT explained that approximate_distribution(docs) returns a 2D array (documents × topics), and that I should select the first row and then build a DataFrame explicitly. It provided a clean pattern:
+
+first_distribution, _ = topic_model.approximate_distribution(docs)
+first_distribution = first_distribution[0]   # probabilities for first speech
+
+topic_info = topic_model.get_topic_info()
+topic_names = topic_info["Name"].tolist()
+
+df_probs = pd.DataFrame({
+    "Topic": topic_names,
+    "Probability": first_distribution
+}).sort_values("Probability", ascending=False)
+
+
+This refactor removed my shape errors and gave me a well-labeled table that I could pass directly into Plotly for visualization.
+
+AI Documentation(Lin Da Miao)
+
+Grammar check
+
+
+
