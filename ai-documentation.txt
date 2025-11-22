@@ -102,5 +102,6 @@ AI Documentation(Lin Da Miao)
 
 Grammar check
 
-
+AI Documentation (Claire O'Brien)
+I used AI to reformat some of my messed up indentation for the myst.yml file. I essentially asked it to "reformat my indentation" and it outputted my same myst.yml file data but formatted correctly.
 
