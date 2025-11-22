@@ -1,4 +1,4 @@
-AI Documentation (Riley Yu)
+AI Documentation(Riley Yu)
 
 1. **Debugging and troubleshooting:**  
    Prompt (input to ChatGPT):
@@ -97,4 +97,10 @@ df_probs = pd.DataFrame({
 
 
 This refactor removed my shape errors and gave me a well-labeled table that I could pass directly into Plotly for visualization.
+
+AI Documentation(Lin Da Miao)
+
+Grammar check
+
+
 
